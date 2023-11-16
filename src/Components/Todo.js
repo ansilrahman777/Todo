@@ -22,7 +22,7 @@ function Todo() {
         setTodos([...todos,{list:todo,id:Date.now(),status:false}])
         setTodo('')
       } else {
-        alert('Todo already exists!!'); 
+        alert('Todo already exists!'); 
       }
     }
     if (todo.trim() !== '') {
