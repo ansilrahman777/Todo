@@ -16,18 +16,25 @@ function Todo() {
   }
 
   const addTodo = () => {
-    if(todo!==''){
-      setTodos([...todos,{list:todo,id:Date.now(),status:false}])
-      setTodo('')
+    if (todo.trim() !== '') {
+      const isDuplicate = todos.some((item) => item.list === todo);
+      if (!isDuplicate) {
+        setTodos([...todos,{list:todo,id:Date.now(),status:false}])
+        setTodo('')
+      } else {
+        alert('Todo already exists!'); 
+      }
     }
-    if(editId){
-      const editTodo = todos.find((todo)=>todo.id === editId)
-      const updateTodo = todos.map((dos)=>dos.id === editTodo.id
-      ? (dos ={id :dos.id,list : todo})
-      : (dos ={id :dos.id,list : dos.list}))
-      setTodos(updateTodo)
-      setEditId(0);
-      setTodo('')
+    if (todo.trim() !== '') {
+      if(editId){
+        const editTodo = todos.find((todo)=>todo.id === editId)
+        const updateTodo = todos.map((dos)=>dos.id === editTodo.id
+        ? (dos ={id :dos.id,list : todo})
+        : (dos ={id :dos.id,list : dos.list}))
+        setTodos(updateTodo)
+        setEditId(0);
+        setTodo('')
+      }
     }
   }
 
