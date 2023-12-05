@@ -5,7 +5,7 @@ import { IoMdDoneAll } from "react-icons/io";
 import { FiEdit } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 
-function Todo() {
+function Todo() { 
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
   const [editId, setEditId] = useState(0);
@@ -67,7 +67,7 @@ function Todo() {
 
   return (
     <div className="container">
-      <h2>ToDo App</h2>
+      <h2>TO-DO APP</h2>
       <form className="form-group" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -75,7 +75,7 @@ function Todo() {
           ref={inputRef}
           placeholder="Enter you To Do"
           className="form-control"
-          onChange={(event) => setTodo(event.target.value)}
+          onChange={(e) => setTodo(e.target.value)}
         />
         <button className="btn btn-dark" onClick={addTodo}>
           {editId ? "EDIT" : "ADD"}
